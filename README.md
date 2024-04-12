@@ -1,4 +1,4 @@
-# C++ OOP
+# C++ 
 This repository contains examples and exercises related to Procedural and Object-Oriented Programming (OOP) in C++.
 
 ## Introduction
