@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int factorial(int n)
+int fab(int n)
 {
-	if (n==0)
+	if (n==0|| n==1)
 	{
-		return 1;
+		return n;
 	}
 
-	int prev_fact = factorial(n - 1);
-	return n * prev_fact;
+	return fab(n - 1) + fab(n - 2);
 }
 
 int main()
 {
-	cout << "Enter number:" << endl;
+	cout << "Enter the number" << endl;
 	int num;
 	cin >> num;
-	cout<<factorial(num);
+	cout << fab(num)<<endl;
 }
+
