@@ -1,0 +1,82 @@
+#include <iostream>
+
+using namespace std;
+
+class Shape
+{
+protected:
+    double side1;
+    double side2;
+
+public:
+    Shape()
+    {
+        side1 = 0.0;
+        side2 = 0.0;
+    }
+
+    void get_data()
+    {
+        cout << "Enter side 1: ";
+        cin >> side1;
+        cout << "Enter side 2: ";
+        cin >> side2;
+    }
+
+    virtual void display_area()
+    {
+        cout << "Area: " << side1 * side2 << endl;
+    }
+};
+
+class Triangle : public Shape
+{
+public:
+    Triangle() {}
+
+    void display_area()
+    {
+        cout << "Area of triangle: " << 0.5 * side1 * side2 << endl;
+    }
+};
+
+class Rectangle : public Shape
+{
+public:
+    Rectangle() {}
+
+    void display_area()
+    {
+        cout << "Area of rectangle: " << side1 * side2 << endl;
+    }
+};
+
+int main()
+{
+    Shape* shapePtr;
+    char choice;
+
+    cout << "Enter 't' for triangle or 'r' for rectangle: " << endl;
+    cin >> choice;
+
+    if (choice == 't')
+    {
+        Triangle triangle;
+        shapePtr = &triangle;
+    }
+    else if (choice == 'r')
+    {
+        Rectangle rectangle;
+        shapePtr = &rectangle;
+    }
+    else
+    {
+        cout << "Invalid choice. Exiting..." << endl;
+        return 1;
+    }
+
+    shapePtr->get_data();
+    shapePtr->display_area();
+
+    return 0;
+}
